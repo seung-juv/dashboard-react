@@ -37,7 +37,7 @@ export default () => {
         <Link to="/">Dashboard</Link>
       </Logo>
       <MenuContainer>
-        {GlobalNavigation.map(options => <GlobalNavigationButton {...options} />)}
+        {GlobalNavigation.map((options, idx) => <GlobalNavigationButton key={idx} {...options} />)}
       </MenuContainer>
     </Wrapper>
   );

@@ -15,34 +15,38 @@ const ItemContainer = styled.div`
   display: flex;
   width: 100%;
   flex-flow: column nowrap;
-  a {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    font-weight: 400;
+`;
+
+const Item = styled(Link)`
+  padding: 15px 30px;
+  height: 45px;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-weight: 400;
+  color: ${props => props.theme.darkGreyColor};
+  ${EFontAwesomeIcon} {
     color: ${props => props.theme.darkGreyColor};
+  }
+  &:hover {
+    color: ${props => props.theme.lightGreyColor};
     ${EFontAwesomeIcon} {
-      color: ${props => props.theme.darkGreyColor};
-    }
-    &:hover {
       color: ${props => props.theme.lightGreyColor};
-      ${EFontAwesomeIcon} {
-        color: ${props => props.theme.lightGreyColor};
-      }
     }
-    &.active {
+  }
+  &.active {
+    color: ${props => props.theme.whiteColor};
+    ${EFontAwesomeIcon} {
       color: ${props => props.theme.whiteColor};
-      ${EFontAwesomeIcon} {
-        color: ${props => props.theme.whiteColor};
-      }
     }
   }
 `;
 
-const Item = styled(Link)`padding: 15px 30px;`;
-
 const Icon = styled.div`
   width: 20px;
+  margin-right: 15px;
   display: flex;
   justify-content: center;
 `;
@@ -50,20 +54,41 @@ const Icon = styled.div`
 const ItemText = styled.span`
   transition: .25s color ease;
   flex: 1;
-  margin-left: 20px;
   font-size: 15px;
 `;
 
 const SubItemContainer = styled.div`
   height: 0;
-  transition: .5s height ease;
+  transition: .25s height ease;
   overflow: hidden;
   &.menu-active {
     height: ${props => props.maxHeight}px;
   }
 `;
 
-const SubItem = styled(Link)`padding: 15px 30px 16px 65px;`;
+const SubItem = styled(Link)`
+  padding: 15px 30px 15px 65px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-weight: 400;
+  color: ${props => props.theme.darkGreyColor};
+  ${EFontAwesomeIcon} {
+    color: ${props => props.theme.darkGreyColor};
+  }
+  &:hover {
+    color: ${props => props.theme.lightGreyColor};
+    ${EFontAwesomeIcon} {
+      color: ${props => props.theme.lightGreyColor};
+    }
+  }
+  &.active {
+    color: ${props => props.theme.whiteColor};
+    ${EFontAwesomeIcon} {
+      color: ${props => props.theme.whiteColor};
+    }
+  }
+`;
 
 const SubItemText = styled.span`transition: .25s color ease;`;
 
@@ -78,7 +103,7 @@ const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }
     <ItemContainer>
       <Item
         to={url ? url : ""}
-        className={url !== undefined && pathname === url ? "active" : null}
+        className={url !== undefined && pathname === url && "active"}
         onClick={subItemProps && onClick}
       >
         <Icon>
@@ -100,7 +125,7 @@ const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }
             <SubItem
               to={item.url}
               key={idx}
-              className={item.url !== undefined && pathname === item.url ? "active" : null}
+              className={item.url !== undefined && pathname === item.url && "active"}
             >
               <SubItemText>
                 {item.name}
