@@ -73,20 +73,11 @@ const SubItem = styled(Link)`
   width: 100%;
   font-weight: 400;
   color: ${props => props.theme.darkGreyColor};
-  ${EFontAwesomeIcon} {
-    color: ${props => props.theme.darkGreyColor};
-  }
   &:hover {
     color: ${props => props.theme.lightGreyColor};
-    ${EFontAwesomeIcon} {
-      color: ${props => props.theme.lightGreyColor};
-    }
   }
   &.active {
     color: ${props => props.theme.whiteColor};
-    ${EFontAwesomeIcon} {
-      color: ${props => props.theme.whiteColor};
-    }
   }
 `;
 
