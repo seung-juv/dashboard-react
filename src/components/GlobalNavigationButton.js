@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -50,24 +50,25 @@ const ItemText = styled.span`
   font-size: 15px;
 `;
 
-const SubItemContainer = styled.div``;
+const SubItemContainer = styled.div`
+  height: 0;
+  transition: .5s height ease;
+  overflow: hidden;
+  &.menu-active {
+    height: ${props => props.maxHeight}px;
+  }
+`;
 
 const SubItem = styled(Link)`padding: 15px 30px 16px 65px;`;
 
 const SubItemText = styled.span`transition: .25s color ease;`;
 
 const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }) => {
-  const subItemEl = useRef(null);
   const [toggleMenu, setToggleMenu] = useState(false);
-  const handleSlideToggle = () => {
-    const { current } = subItemEl;
-    // TODO cureent slide toggle
-  };
   const { pathname } = useLocation();
   const onClick = e => {
     e.preventDefault();
     setToggleMenu(!toggleMenu);
-    handleSlideToggle();
   };
   return (
     <ItemContainer>
@@ -85,7 +86,10 @@ const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }
       </Item>
 
       {subItemProps &&
-        <SubItemContainer ref={subItemEl}>
+        <SubItemContainer
+          className={toggleMenu && "menu-active"}
+          maxHeight={props => props.children.length * 45}
+        >
           {subItemProps.map((item, idx) =>
             <SubItem
               to={item.url}
