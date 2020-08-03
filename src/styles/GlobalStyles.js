@@ -3,14 +3,14 @@ import reset from "styled-reset";
 
 export default createGlobalStyle`
   ${reset};
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
   * {
     box-sizing: border-box;
   }
-  body {
+  body, html {
     color: ${props => props.theme.blackColor};
+    background-color: #fafbfe;
     font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Nunito", sans-serif;
   }
   a {
     color: inherit;
