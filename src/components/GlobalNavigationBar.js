@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import GlobalNavigationButton from "./GlobalNavigationButton";
-import { faHome, faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import GlobalNavigation from "../navigation/GlobalNavigation";
 
 const Wrapper = styled.nav`
   width: 100%;
@@ -34,23 +34,10 @@ export default () => {
   return (
     <Wrapper>
       <Logo>
-        <Link to="/">LOGO</Link>
+        <Link to="/">Dashboard</Link>
       </Logo>
       <MenuContainer>
-        <GlobalNavigationButton itemProps={{ name: "Dashboards", url: "/", icon: faHome }} />
-        <GlobalNavigationButton
-          itemProps={{ name: "Projects", icon: faProjectDiagram }}
-          subItemProps={[
-            {
-              name: "List",
-              url: "/projects/list"
-            },
-            {
-              name: "Details",
-              url: "/projects/details"
-            }
-          ]}
-        />
+        {GlobalNavigation.map(options => <GlobalNavigationButton {...options} />)}
       </MenuContainer>
     </Wrapper>
   );

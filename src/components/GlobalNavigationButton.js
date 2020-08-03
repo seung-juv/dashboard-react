@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const EFontAwesomeIcon = styled(FontAwesomeIcon)`
-  width: 20px;
-  height: 20px;
   transition: .25s all ease;
   &.menu-active-angle {
     transform: rotate(90deg);
@@ -43,6 +41,12 @@ const ItemContainer = styled.div`
 
 const Item = styled(Link)`padding: 15px 30px;`;
 
+const Icon = styled.div`
+  width: 20px;
+  display: flex;
+  justify-content: center;
+`;
+
 const ItemText = styled.span`
   transition: .25s color ease;
   flex: 1;
@@ -77,7 +81,9 @@ const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }
         className={url !== undefined && pathname === url ? "active" : null}
         onClick={subItemProps && onClick}
       >
-        <EFontAwesomeIcon icon={icon} />
+        <Icon>
+          <EFontAwesomeIcon icon={icon} />
+        </Icon>
         <ItemText>
           {name}
         </ItemText>
