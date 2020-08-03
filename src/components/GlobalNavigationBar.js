@@ -37,10 +37,10 @@ export default () => {
         <Link to="/">LOGO</Link>
       </Logo>
       <MenuContainer>
-        <GlobalNavigationButton ItemProps={{ name: "Dashboards", url: "/", icon: faHome }} />
+        <GlobalNavigationButton itemProps={{ name: "Dashboards", url: "/", icon: faHome }} />
         <GlobalNavigationButton
-          ItemProps={{ name: "Projects", icon: faProjectDiagram }}
-          SubItemProps={[
+          itemProps={{ name: "Projects", icon: faProjectDiagram }}
+          subItemProps={[
             {
               name: "List",
               url: "/projects/list"

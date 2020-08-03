@@ -5,6 +5,8 @@ import styled, { ThemeProvider } from "styled-components";
 import Theme from "../styles/Theme";
 import GlobalStyles from "../styles/GlobalStyles";
 import GlobalNavigationBar from "./GlobalNavigationBar";
+import Details from "../routes/Projects/Details";
+import List from "../routes/Projects/List";
 
 const Wrapper = styled.div`
   min-width: 100vw;
@@ -24,6 +26,8 @@ const App = () => {
           <GlobalNavigationBar />
           <Container>
             <Route path="/" exact component={Home} />
+            <Route path="/projects/details" component={Details} />
+            <Route path="/projects/list" component={List} />
           </Container>
         </Wrapper>
       </Router>
