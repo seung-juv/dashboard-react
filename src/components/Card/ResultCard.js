@@ -33,7 +33,10 @@ const Percent = styled.p`
       : props.status === "danger" ? props.theme.redColor : props.theme.darkGreyColor};
 `;
 
-const Meta = styled.p``;
+const Meta = styled.p`
+  color: ${props => props.theme.lightGreyColor};
+  font-weight: 400;
+`;
 
 const ResultCard = ({ result, percent, meta, status = "normal" }) => {
   return (
