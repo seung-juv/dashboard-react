@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 const Container = styled.div`
-  flex: 1 0 33%;
+  flex: 1;
+  flex-basis: ${props => props.basis};
   margin: 0 15px 30px;
   display: flex;
   flex-flow: column nowrap;
@@ -25,9 +27,9 @@ const Compoent = styled.div`
   flex: 1;
 `;
 
-const CardContainer = ({ title, component }) => {
+const CardContainer = ({ title, component, basis = "0" }) => {
   return (
-    <Container>
+    <Container basis={basis}>
       <Title>
         {title}
       </Title>
@@ -36,6 +38,12 @@ const CardContainer = ({ title, component }) => {
       </Compoent>
     </Container>
   );
+};
+
+CardContainer.propTypes = {
+  title: propTypes.string.isRequired,
+  component: propTypes.object.isRequired,
+  basis: propTypes.string
 };
 
 export default CardContainer;

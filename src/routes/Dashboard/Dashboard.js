@@ -22,7 +22,7 @@ const Container = styled.div`
 const ResultContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  flex: 2;
+  flex: 1;
 `;
 
 const Dashboard = props => {
@@ -36,24 +36,28 @@ const Dashboard = props => {
             component={
               <ResultCard result="36,522" percent={5.27} meta="Since last month" status="success" />
             }
+            basis="45%"
           />
           <CardContainer
             title="Example"
             component={
               <ResultCard result="36,522" percent={1.27} meta="Since last month" status="danger" />
             }
+            basis="45%"
           />
           <CardContainer
             title="Example"
             component={
               <ResultCard result="36,522" percent={2} meta="Since last month" status="normal" />
             }
+            basis="45%"
           />
           <CardContainer
             title="Example"
             component={
               <ResultCard result="36,522" percent={5.27} meta="Since last month" status="normal" />
             }
+            basis="45%"
           />
         </ResultContainer>
         <CardContainer
@@ -134,9 +138,168 @@ const Dashboard = props => {
               animation={true}
               showLabels={true}
               innerRadius={75}
-              width={300}
-              height={300}
-              radius={128}
+              width={250}
+              height={250}
+              radius={115}
+            />
+          }
+        />
+        <CardContainer
+          title="Example"
+          component={
+            <RadialChartCard
+              data={[
+                {
+                  angle: 1,
+                  label: "example 1",
+                  color: Theme.redColor,
+                  style: {
+                    fill: Theme.redColor,
+                    storke: Theme.redColor
+                  }
+                },
+                {
+                  angle: 1,
+                  label: "example 2",
+                  color: Theme.purpleColor,
+                  style: {
+                    fill: Theme.purpleColor,
+                    storke: Theme.purpleColor
+                  }
+                },
+                {
+                  angle: 1,
+                  label: "example 3",
+                  color: Theme.yellowColor,
+                  style: {
+                    fill: Theme.yellowColor,
+                    storke: Theme.yellowColor
+                  }
+                },
+                {
+                  angle: 4,
+                  label: "example 4",
+                  color: Theme.greenColor,
+                  style: {
+                    fill: Theme.greenColor,
+                    storke: Theme.greenColor
+                  }
+                }
+              ]}
+              style={{ stroke: 0 }}
+              labelsStyle={{ color: Theme.whiteColor }}
+              animation={true}
+              showLabels={true}
+              innerRadius={75}
+              width={250}
+              height={250}
+              radius={115}
+            />
+          }
+        />
+        <CardContainer
+          title="Example"
+          component={
+            <RadialChartCard
+              data={[
+                {
+                  angle: 1,
+                  label: "example 1",
+                  color: Theme.redColor,
+                  style: {
+                    fill: Theme.redColor,
+                    storke: Theme.redColor
+                  }
+                },
+                {
+                  angle: 1,
+                  label: "example 2",
+                  color: Theme.purpleColor,
+                  style: {
+                    fill: Theme.purpleColor,
+                    storke: Theme.purpleColor
+                  }
+                },
+                {
+                  angle: 1,
+                  label: "example 3",
+                  color: Theme.yellowColor,
+                  style: {
+                    fill: Theme.yellowColor,
+                    storke: Theme.yellowColor
+                  }
+                },
+                {
+                  angle: 4,
+                  label: "example 4",
+                  color: Theme.greenColor,
+                  style: {
+                    fill: Theme.greenColor,
+                    storke: Theme.greenColor
+                  }
+                }
+              ]}
+              style={{ stroke: 0 }}
+              labelsStyle={{ color: Theme.whiteColor }}
+              animation={true}
+              showLabels={true}
+              innerRadius={75}
+              width={250}
+              height={250}
+              radius={115}
+            />
+          }
+        />
+        <CardContainer
+          title="Example"
+          component={
+            <RadialChartCard
+              data={[
+                {
+                  angle: 1,
+                  label: "example 1",
+                  color: Theme.redColor,
+                  style: {
+                    fill: Theme.redColor,
+                    storke: Theme.redColor
+                  }
+                },
+                {
+                  angle: 1,
+                  label: "example 2",
+                  color: Theme.purpleColor,
+                  style: {
+                    fill: Theme.purpleColor,
+                    storke: Theme.purpleColor
+                  }
+                },
+                {
+                  angle: 1,
+                  label: "example 3",
+                  color: Theme.yellowColor,
+                  style: {
+                    fill: Theme.yellowColor,
+                    storke: Theme.yellowColor
+                  }
+                },
+                {
+                  angle: 4,
+                  label: "example 4",
+                  color: Theme.greenColor,
+                  style: {
+                    fill: Theme.greenColor,
+                    storke: Theme.greenColor
+                  }
+                }
+              ]}
+              style={{ stroke: 0 }}
+              labelsStyle={{ color: Theme.whiteColor }}
+              animation={true}
+              showLabels={true}
+              innerRadius={75}
+              width={250}
+              height={250}
+              radius={115}
             />
           }
         />

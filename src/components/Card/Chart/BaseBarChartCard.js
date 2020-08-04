@@ -18,12 +18,9 @@ const Container = styled.div`
 export default ({ data, color, barWidth = 0.5 }) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const ref = useRef(null);
-  useEffect(
-    () => {
-      setContainerWidth(ref.current ? ref.current.offsetWidth : 0);
-    },
-    [ref.current]
-  );
+  useEffect(() => {
+    setContainerWidth(ref.current ? ref.current.offsetWidth : 0);
+  }, []);
   return (
     <Container ref={ref}>
       <XYPlot xType="ordinal" width={containerWidth} height={300}>
