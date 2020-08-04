@@ -53,6 +53,7 @@ const NotificationIcon = styled(FontAwesomeIcon)`
   width: 25px;
   height: 25px;
   margin-right: 25px;
+  cursor: pointer;
   color: ${props => props.theme.blackColor};
 `;
 

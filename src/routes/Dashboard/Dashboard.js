@@ -4,6 +4,7 @@ import RadialChartCard from "../../components/Card/Chart/RadialChartCard";
 import Theme from "../../styles/Theme";
 import CardContainer from "../../components/CardContainer";
 import ResultCard from "../../components/Card/ResultCard";
+import BaseBarChartCard from "../../components/Card/Chart/BaseBarChartCard";
 
 const Wrapper = styled.section``;
 
@@ -17,10 +18,11 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
 `;
+
 const ResultContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  flex: 4;
+  flex: 2;
 `;
 
 const Dashboard = props => {
@@ -54,6 +56,37 @@ const Dashboard = props => {
             }
           />
         </ResultContainer>
+        <CardContainer
+          title="Example"
+          component={
+            <BaseBarChartCard
+              data={[
+                { x: "A", y: -24 },
+                { x: "B", y: -30 },
+                { x: "C", y: -2 },
+                { x: "D", y: 1 },
+                { x: "E", y: 2 },
+                { x: "F", y: 4 },
+                { x: "G", y: 6 },
+                { x: "H", y: 7 },
+                { x: "I", y: 8 },
+                { x: "J", y: 11 },
+                { x: "K", y: 12 },
+                { x: "L", y: 20 },
+                { x: "M", y: 120 },
+                { x: "N", y: 220 },
+                { x: "O", y: 280 },
+                { x: "P", y: 370 },
+                { x: "Q", y: 470 },
+                { x: "R", y: 520 },
+                { x: "S", y: 650 }
+              ]}
+              barWidth={0.25}
+            />
+          }
+        />
+      </Container>
+      <Container>
         <CardContainer
           title="Example"
           component={
