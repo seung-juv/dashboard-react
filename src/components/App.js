@@ -13,6 +13,7 @@ import Infomation from "../routes/Settings/Infomation";
 import Header from "./Header";
 import Profile from "../routes/Settings/Profile";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   min-width: 100vw;
@@ -31,6 +32,10 @@ const ContentsContainer = styled.div`
 const App = ({ dashboard: { isLogin } }) => {
   return (
     <ThemeProvider theme={Theme}>
+      <Helmet>
+        <title>Dashboard</title>
+        <link rel="canonical" href="../styles/fonts.css" />
+      </Helmet>
       <GlobalStyles />
       <Router>
         {isLogin

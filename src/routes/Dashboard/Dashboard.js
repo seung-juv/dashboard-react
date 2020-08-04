@@ -5,6 +5,7 @@ import Theme from "../../styles/Theme";
 import CardContainer from "../../components/CardContainer";
 import ResultCard from "../../components/Card/ResultCard";
 import BaseBarChartCard from "../../components/Card/Chart/BaseBarChartCard";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.section``;
 
@@ -28,6 +29,9 @@ const ResultContainer = styled.div`
 const Dashboard = props => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <Title>Dashboard</Title>
       <Container>
         <ResultContainer>

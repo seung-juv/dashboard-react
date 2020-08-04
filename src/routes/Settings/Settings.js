@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.section``;
 
@@ -17,6 +18,9 @@ const Container = styled.div`
 const Settings = props => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Dashboard | Settings</title>
+      </Helmet>
       <Title>Settings</Title>
       <Container>sdf</Container>
     </Wrapper>
