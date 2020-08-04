@@ -1,16 +1,20 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const isLoagin = createSlice({
-  name: "isLoagin",
+const dashboard = createSlice({
+  name: "dashboard",
   initialState: {
-    isLogin: false
+    isLogin: false,
+    chart: []
   },
   reducers: {
     login: state => void (state.isLogin = true),
-    logout: state => void (state.isLogin = false)
+    logout: state => void (state.isLogin = false),
+    addChart: (state, action) => {
+      state.chart.push(action.payload);
+    }
   }
 });
 
-export const { login, logout } = isLoagin.actions;
+export const { login, logout, addChart } = dashboard.actions;
 
-export default configureStore({ reducer: isLoagin.reducer });
+export default configureStore({ reducer: dashboard.reducer });
