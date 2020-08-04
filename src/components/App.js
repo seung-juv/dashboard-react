@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { HashRouter as Router, Route, Redirect } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import Theme from "../styles/Theme";
 import GlobalStyles from "../styles/GlobalStyles";

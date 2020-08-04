@@ -1,4 +1,4 @@
-import { configureStore, createSlice, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const isLoagin = createSlice({
   name: "isLoagin",
