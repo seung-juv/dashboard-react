@@ -27,7 +27,7 @@ const Logo = styled.h1`
 const MenuContainer = styled.div`
   flex: 1;
   flex-flow: column nowrap;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export default () => {
