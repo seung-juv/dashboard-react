@@ -9,6 +9,7 @@ import List from "../routes/Projects/List";
 import Dashboard from "../routes/Dashboard/Dashboard";
 import Settings from "../routes/Settings/Settings";
 import Infomation from "../routes/Settings/Infomation";
+import Header from "./Header";
 
 const Wrapper = styled.div`
   min-width: 100vw;
@@ -17,9 +18,11 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const Container = styled.div`
+const Container = styled.div`flex: 1;`;
+
+const ContentsContainer = styled.div`
   flex: 1;
-  padding: 35px 15px;
+  padding: 0 15px 35px;
 `;
 
 const App = () => {
@@ -30,11 +33,14 @@ const App = () => {
         <Wrapper>
           <GlobalNavigationBar />
           <Container>
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/projects/details" component={Details} />
-            <Route path="/projects/list" component={List} />
-            <Route path="/settings/settings" component={Settings} />
-            <Route path="/settings/infomation" component={Infomation} />
+            <Header />
+            <ContentsContainer>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/projects/details" component={Details} />
+              <Route path="/projects/list" component={List} />
+              <Route path="/settings/settings" component={Settings} />
+              <Route path="/settings/infomation" component={Infomation} />
+            </ContentsContainer>
           </Container>
         </Wrapper>
       </Router>
