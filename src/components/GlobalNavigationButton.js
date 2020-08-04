@@ -86,6 +86,7 @@ const SubItemText = styled.span`transition: .25s color ease;`;
 const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { pathname } = useLocation();
+  const rootPath = `/${pathname.split("/")[1]}`;
   const onClick = e => {
     e.preventDefault();
     setToggleMenu(!toggleMenu);
@@ -93,8 +94,8 @@ const GlobalNavigationButton = ({ itemProps: { name, icon, url }, subItemProps }
   return (
     <ItemContainer>
       <Item
-        to={url ? url : ""}
-        className={url !== undefined && pathname === url && "active"}
+        to={url}
+        className={(pathname === url || rootPath === url) && "active"}
         onClick={subItemProps && onClick}
       >
         <Icon>

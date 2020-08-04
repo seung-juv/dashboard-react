@@ -3,6 +3,9 @@ import styled from "styled-components";
 import useInput from "../hooks/useInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBell } from "@fortawesome/free-solid-svg-icons";
+import { logout } from "../stores/store";
+import { connect } from "react-redux";
+import Submit from "./Submit";
 
 const Container = styled.header`
   display: flex;
@@ -64,16 +67,7 @@ const Avatar = styled.img`
   cursor: pointer;
 `;
 
-const Submit = styled.input`
-  height: 100%;
-  border: 0;
-  padding: 0 15px;
-  background-color: ${props => props.theme.purpleColor};
-  cursor: pointer;
-  color: #fff;
-`;
-
-const Header = props => {
+const Header = ({ onLogout }) => {
   const search = useInput("");
   return (
     <Container>
@@ -82,14 +76,23 @@ const Header = props => {
           <SearchIcon icon={faSearch} />
           <SearchInput value={search.value} onChange={search.onChange} placeholder="Search..." />
         </SearchContainer>
-        <Submit value="Search" type="submit" />
+        <Submit value="Search" onClick={() => null} />
       </SearchWrapper>
       <UserInfoContainer>
         <NotificationIcon icon={faBell} size="2x" />
-        <Avatar src="https://phinf.pstatic.net/contact/20200802_291/1596376539993fFl4q_PNG/avatar_profile.png?type=f130_130" />
+        <Avatar
+          onClick={onLogout}
+          src="https://phinf.pstatic.net/contact/20200802_291/1596376539993fFl4q_PNG/avatar_profile.png?type=f130_130"
+        />
       </UserInfoContainer>
     </Container>
   );
 };
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    onLogout: text => dispatch(logout())
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Header);

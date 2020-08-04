@@ -1,13 +1,16 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, combineReducers } from "@reduxjs/toolkit";
 
-const dashboard = createSlice({
-  name: "data",
-  initialState: [],
+const isLoagin = createSlice({
+  name: "isLoagin",
+  initialState: {
+    isLogin: false
+  },
   reducers: {
-    addData: (state, action) => {
-      state.push({ ...action.payload });
-    }
+    login: state => void (state.isLogin = true),
+    logout: state => void (state.isLogin = false)
   }
 });
 
-export default configureStore({ reducer: dashboard.reducer });
+export const { login, logout } = isLoagin.actions;
+
+export default configureStore({ reducer: isLoagin.reducer });

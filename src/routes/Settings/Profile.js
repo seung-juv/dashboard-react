@@ -14,13 +14,13 @@ const Container = styled.div`
   flex-flow: row wrap;
 `;
 
-const Details = props => {
+const Profile = props => {
   return (
     <Wrapper>
-      <Title>Details</Title>
+      <Title>Profile</Title>
       <Container>sdf</Container>
     </Wrapper>
   );
 };
 
-export default Details;
+export default Profile;

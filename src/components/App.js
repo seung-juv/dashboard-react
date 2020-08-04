@@ -1,15 +1,18 @@
-import React from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import Theme from "../styles/Theme";
 import GlobalStyles from "../styles/GlobalStyles";
 import GlobalNavigationBar from "./GlobalNavigationBar";
+import Auth from "../routes/Auth";
 import Details from "../routes/Projects/Details";
 import List from "../routes/Projects/List";
 import Dashboard from "../routes/Dashboard/Dashboard";
 import Settings from "../routes/Settings/Settings";
 import Infomation from "../routes/Settings/Infomation";
 import Header from "./Header";
+import Profile from "../routes/Settings/Profile";
+import { connect } from "react-redux";
 
 const Wrapper = styled.div`
   min-width: 100vw;
@@ -25,27 +28,34 @@ const ContentsContainer = styled.div`
   padding: 0 15px 35px;
 `;
 
-const App = () => {
+const App = ({ dashboard: { isLogin } }) => {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
       <Router>
-        <Wrapper>
-          <GlobalNavigationBar />
-          <Container>
-            <Header />
-            <ContentsContainer>
-              <Route path="/" exact component={Dashboard} />
-              <Route path="/projects/details" component={Details} />
-              <Route path="/projects/list" component={List} />
-              <Route path="/settings/settings" component={Settings} />
-              <Route path="/settings/infomation" component={Infomation} />
-            </ContentsContainer>
-          </Container>
-        </Wrapper>
+        {isLogin
+          ? <Route path="/" component={Auth} />
+          : <Wrapper>
+              <GlobalNavigationBar />
+              <Container>
+                <Header />
+                <ContentsContainer>
+                  <Route path="/" exact component={Dashboard} />
+                  <Route path="/projects/details" component={Details} />
+                  <Route path="/projects/list" component={List} />
+                  <Route path="/settings/settings" component={Settings} />
+                  <Route path="/settings/profile" component={Profile} />
+                  <Route path="/settings/infomation" component={Infomation} />
+                </ContentsContainer>
+              </Container>
+            </Wrapper>}
       </Router>
     </ThemeProvider>
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return { dashboard: state };
+};
+
+export default connect(mapStateToProps)(App);

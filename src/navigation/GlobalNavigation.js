@@ -3,7 +3,7 @@ import { faHome, faProjectDiagram, faCog } from "@fortawesome/free-solid-svg-ico
 export default [
   {
     itemProps: {
-      name: "Dashboards",
+      name: "Dashboard",
       url: "/",
       icon: faHome
     }
@@ -11,6 +11,7 @@ export default [
   {
     itemProps: {
       name: "Projects",
+      url: "/projects",
       icon: faProjectDiagram
     },
     subItemProps: [
@@ -27,12 +28,17 @@ export default [
   {
     itemProps: {
       name: "Settings",
+      url: "/settings",
       icon: faCog
     },
     subItemProps: [
       {
         name: "Settings",
         url: "/settings/settings"
+      },
+      {
+        name: "Profile",
+        url: "/settings/profile"
       },
       {
         name: "Infomation",
