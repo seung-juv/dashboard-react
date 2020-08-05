@@ -14,6 +14,7 @@ import Header from "./Header";
 import Profile from "../routes/Settings/Profile";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
+import RouteContainer from "./RouteContainer";
 
 const Wrapper = styled.div`
   min-width: 100vw;
@@ -45,12 +46,31 @@ const App = ({ dashboard: { isLogin } }) => {
               <Container>
                 <Header />
                 <ContentsContainer>
-                  <Route path="/" exact component={Dashboard} />
-                  <Route path="/projects/details" component={Details} />
-                  <Route path="/projects/list" component={List} />
-                  <Route path="/settings/settings" component={Settings} />
-                  <Route path="/settings/profile" component={Profile} />
-                  <Route path="/settings/infomation" component={Infomation} />
+                  <Route
+                    path="/"
+                    exact
+                    render={() => <RouteContainer title="Dashboard" component={<Dashboard />} />}
+                  />
+                  <Route
+                    path="/projects/details"
+                    render={() => <RouteContainer title="Details" component={<Details />} />}
+                  />
+                  <Route
+                    path="/projects/list"
+                    render={() => <RouteContainer title="List" component={<List />} />}
+                  />
+                  <Route
+                    path="/settings/settings"
+                    render={() => <RouteContainer title="Settings" component={<Settings />} />}
+                  />
+                  <Route
+                    path="/settings/profile"
+                    render={() => <RouteContainer title="Profile" component={<Profile />} />}
+                  />
+                  <Route
+                    path="/settings/infomation"
+                    render={() => <RouteContainer title="Infomation" component={<Infomation />} />}
+                  />
                 </ContentsContainer>
               </Container>
             </Wrapper>}

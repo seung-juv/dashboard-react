@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { login } from "../stores/store";
 import useInput from "../hooks/useInput";
 import Submit from "../components/Submit";
+import Input from "../components/Input";
 
 const Wrapper = styled.section`
   display: flex;
@@ -17,6 +18,8 @@ const Wrapper = styled.section`
 const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  width: 100%;
+  max-width: 350px;
   padding: 25px;
   background-color: ${props => props.theme.whiteColor};
 `;
@@ -28,24 +31,12 @@ const Title = styled.h2`
   margin-bottom: 15px;
 `;
 
-const IdContainer = styled.div`
+const InputContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   margin-bottom: 35px;
-`;
-
-const Input = styled.input`
-  background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid ${props => props.theme.lightGreyColor};
-  width: 260px;
-  padding: 15px;
-  font-weight: 300;
-  &::placeholder {
-    color: ${props => props.theme.darkGreyColor};
-  }
-  &:not(:last-child) {
-    margin-bottom: 15px;
+  input:not(:last-child) {
+    margin-bottom: 5px;
   }
 `;
 
@@ -60,7 +51,7 @@ const Auth = ({ onLogin }) => {
     <Wrapper>
       <Container>
         <Title>Login</Title>
-        <IdContainer>
+        <InputContainer>
           <Input value={userId.value} onChange={userId.onChange} type="text" placeholder="id" />
           <Input
             value={userPassword.value}
@@ -68,7 +59,7 @@ const Auth = ({ onLogin }) => {
             type="password"
             placeholder="password"
           />
-        </IdContainer>
+        </InputContainer>
         <Submit value="Login" onClick={onClick} />
       </Container>
     </Wrapper>

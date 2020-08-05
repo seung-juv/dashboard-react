@@ -1,28 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { Helmet } from "react-helmet";
 
 const Wrapper = styled.section``;
 
-const Title = styled.h2`
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 15px 25px;
-`;
-
 const Container = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
+  margin: 0 15px;
 `;
-
-const Settings = props => {
+const Settings = () => {
   return (
     <Wrapper>
-      <Helmet>
-        <title>Dashboard | Settings</title>
-      </Helmet>
-      <Title>Settings</Title>
-      <Container>sdf</Container>
+      <Container />
     </Wrapper>
   );
 };

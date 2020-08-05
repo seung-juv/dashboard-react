@@ -5,15 +5,8 @@ import Theme from "../../styles/Theme";
 import CardContainer from "../../components/CardContainer";
 import ResultCard from "../../components/Card/ResultCard";
 import BaseBarChartCard from "../../components/Card/Chart/BaseBarChartCard";
-import { Helmet } from "react-helmet";
 
 const Wrapper = styled.section``;
-
-const Title = styled.h2`
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 15px 25px;
-`;
 
 const Container = styled.div`
   display: flex;
@@ -26,13 +19,9 @@ const ResultContainer = styled.div`
   flex: 1;
 `;
 
-const Dashboard = props => {
+const Dashboard = () => {
   return (
     <Wrapper>
-      <Helmet>
-        <title>Dashboard</title>
-      </Helmet>
-      <Title>Dashboard</Title>
       <Container>
         <ResultContainer>
           <CardContainer

@@ -6,6 +6,7 @@ import { faSearch, faBell } from "@fortawesome/free-solid-svg-icons";
 import { logout } from "../stores/store";
 import { connect } from "react-redux";
 import Submit from "./Submit";
+import Avatar from "./Avatar";
 
 const Container = styled.header`
   display: flex;
@@ -60,14 +61,14 @@ const NotificationIcon = styled(FontAwesomeIcon)`
   color: ${props => props.theme.blackColor};
 `;
 
-const Avatar = styled.img`
+const UserProfile = styled.div`
   width: 35px;
   height: 35px;
   border-radius: 35px;
-  cursor: pointer;
+  overflow: hidden;
 `;
 
-const Header = ({ onLogout }) => {
+const Header = ({ onLogout, dashboard: { avatar } }) => {
   const search = useInput("");
   return (
     <Container>
@@ -80,13 +81,16 @@ const Header = ({ onLogout }) => {
       </SearchWrapper>
       <UserInfoContainer>
         <NotificationIcon icon={faBell} size="2x" />
-        <Avatar
-          onClick={onLogout}
-          src="https://phinf.pstatic.net/contact/20200802_291/1596376539993fFl4q_PNG/avatar_profile.png?type=f130_130"
-        />
+        <UserProfile>
+          <Avatar size={35} url={avatar} />
+        </UserProfile>
       </UserInfoContainer>
     </Container>
   );
+};
+
+const mapStateToProps = state => {
+  return { dashboard: state };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -95,4 +99,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

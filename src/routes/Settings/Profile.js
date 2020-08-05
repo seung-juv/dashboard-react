@@ -1,30 +1,67 @@
 import React from "react";
 import styled from "styled-components";
-import { Helmet } from "react-helmet";
 
-const Wrapper = styled.section``;
+import SettingsInput from "../../components/Settings/SettingsInput";
+import useInput from "../../hooks/useInput";
+import { connect } from "react-redux";
+import Submit from "../../components/Submit";
+import Avatar from "../../components/Avatar";
 
-const Title = styled.h2`
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 15px 25px;
-`;
-
-const Container = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-flow: row wrap;
 `;
 
-const Profile = props => {
+const Container = styled.div`
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  margin: 0 15px;
+`;
+
+const ESettingsInput = styled(SettingsInput)`
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+`;
+const UserProfileContainer = styled.div`flex: 2;`;
+const UserProfile = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  overflow: hidden;
+`;
+
+const Title = styled.h5`
+  font-weight: 600;
+  margin-bottom: 15px;
+`;
+
+const Profile = ({ dashboard }) => {
+  const nameInput = useInput(dashboard.name);
+  const emailInput = useInput(dashboard.email);
+  const bioInput = useInput(dashboard.bio);
+
   return (
     <Wrapper>
-      <Helmet>
-        <title>Dashboard | Profile</title>
-      </Helmet>
-      <Title>Profile</Title>
-      <Container>sdf</Container>
+      <Container>
+        <ESettingsInput title="Name" value={nameInput.value} onChange={nameInput.onChange} />
+        <ESettingsInput title="E-mail" value={emailInput.value} onChange={emailInput.onChange} />
+        <ESettingsInput title="Bio" value={bioInput.value} onChange={bioInput.onChange} />
+        <Submit onClick={() => null} value="Update Profile" />
+      </Container>
+      <UserProfileContainer>
+        <Title>Profile picture</Title>
+        <UserProfile>
+          <Avatar url={dashboard.avatar} size={200} />
+        </UserProfile>
+      </UserProfileContainer>
     </Wrapper>
   );
 };
 
-export default Profile;
+const mapStateToProps = state => {
+  return { dashboard: state };
+};
+
+export default connect(mapStateToProps)(Profile);
