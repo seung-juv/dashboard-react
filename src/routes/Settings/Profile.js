@@ -37,10 +37,10 @@ const Title = styled.h5`
   margin-bottom: 15px;
 `;
 
-const Profile = ({ dashboard }) => {
-  const nameInput = useInput(dashboard.name);
-  const emailInput = useInput(dashboard.email);
-  const bioInput = useInput(dashboard.bio);
+const Profile = ({ dashboard: { user: me } }) => {
+  const nameInput = useInput(me.name);
+  const emailInput = useInput(me.email);
+  const bioInput = useInput(me.bio);
 
   return (
     <Wrapper>
@@ -53,7 +53,7 @@ const Profile = ({ dashboard }) => {
       <UserProfileContainer>
         <Title>Profile picture</Title>
         <UserProfile>
-          <Avatar url={dashboard.avatar} size={200} />
+          <Avatar url={me.avatar} size={200} />
         </UserProfile>
       </UserProfileContainer>
     </Wrapper>

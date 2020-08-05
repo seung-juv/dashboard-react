@@ -68,7 +68,7 @@ const UserProfile = styled.div`
   overflow: hidden;
 `;
 
-const Header = ({ onLogout, dashboard: { avatar } }) => {
+const Header = ({ onLogout, dashboard: { user: { me: { avatar } } } }) => {
   const search = useInput("");
   return (
     <Container>
